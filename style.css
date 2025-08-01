@@ -544,13 +544,19 @@ body.dark .contact-form button:hover {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
+/* Tombol hamburger - hanya muncul di mobile */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
 .navbar ul {
   display: flex;
   justify-content: center;
   gap: 30px;
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .navbar a {
@@ -562,6 +568,51 @@ body.dark .contact-form button:hover {
 
 .navbar a:hover {
   color: #0077b5;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 20px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    display: none;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+  }
+
+  .navbar ul.show {
+    display: flex;
+  }
+
+  .navbar a {
+    padding: 10px 20px;
+    display: block;
+    width: 100%;
+  }
+
+  body.dark .navbar ul {
+    background-color: #1a1a1a;
+    border-top: 1px solid #333;
+  }
+
+  body.dark .hamburger {
+    color: #fff;
+  }
 }
 
 /* Dark mode */

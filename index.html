@@ -10,9 +10,6 @@
 </head>
 <body>
   <nav class="navbar fade-in delay-0">
-  <div class="hamburger" id="hamburger">
-    <i class="fas fa-bars"></i>
-  </div>
   <ul id="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">Tentang</a></li>
@@ -157,12 +154,6 @@
     setTimeout(() => toggleBtn.classList.remove('rotate'), 600);
   });
 
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
 </script>
 </body>
 </html>

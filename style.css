@@ -74,6 +74,21 @@ body.dark .theme-toggle:hover {
   background-color: #333;
 }
 
+@media (max-width: 600px) {
+  .theme-toggle {
+    font-size: 12px;
+    padding: 6px 12px;
+    top: 0.8rem;
+    right: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-toggle .label {
+    display: none;
+  }
+}
+
 
 .about {
   padding: 4rem 2rem;

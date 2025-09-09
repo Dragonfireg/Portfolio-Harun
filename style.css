@@ -1,12 +1,16 @@
-/* Reset dasar */
+/* RESET DASAR */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   background-color: #f4f4f4;
   color: #333;
   line-height: 1.6;
@@ -14,6 +18,7 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+/* CONTAINER UMUM */
 .container {
   max-width: 600px;
   margin: auto;
@@ -26,11 +31,54 @@ body {
 }
 
 main.container {
-  padding-top: 80px; /* menyesuaikan tinggi navbar */
+  padding-top: 80px;
 }
 
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
 
-/* Tombol Toggle */
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #0077b5;
+}
+
+/* DARK MODE NAVBAR */
+body.dark .navbar {
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333;
+}
+
+body.dark .navbar a {
+  color: #ddd;
+}
+
+body.dark .navbar a:hover {
+  color: #0af;
+}
+
+/* TOMBOL TOGGLE */
 .theme-toggle {
   position: fixed;
   bottom: 1rem;
@@ -42,32 +90,27 @@ main.container {
   padding: 8px 16px;
   font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   display: flex;
   align-items: center;
   gap: 0.4rem;
   backdrop-filter: blur(4px);
   background-color: rgba(255, 255, 255, 0.7);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-
-/* Efek hover */
 .theme-toggle:hover {
   background-color: #eee;
 }
 
-/* Icon animasi rotasi */
 .theme-toggle .icon {
   display: inline-block;
   transition: transform 0.6s ease;
 }
 
-/* Saat aktif - icon berputar */
 .theme-toggle.rotate .icon {
   transform: rotate(180deg);
 }
 
-/* Dark mode toggle button */
 body.dark .theme-toggle {
   background-color: rgba(30, 30, 30, 0.8);
   border-color: #666;
@@ -87,16 +130,92 @@ body.dark .theme-toggle:hover {
   }
 
   .theme-toggle .label {
-    display: none; /* hanya tampilkan ikon di mobile */
+    display: none;
   }
 }
 
+/* PROFILE */
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ddd;
+  margin-bottom: 20px;
+}
 
+.profile-name {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.profile-bio {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+body.dark .profile-bio {
+  color: #aaa;
+}
+
+body.dark .profile-img {
+  border: 3px solid #444;
+}
+
+/* LINK SOSIAL */
+.social-links h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.social-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.social-links li {
+  margin: 10px 0;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #0077b5;
+  padding: 12px 20px;
+  border-radius: 8px;
+  display: inline-block;
+  width: 80%;
+  max-width: 300px;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.social-links a:hover {
+  background-color: #005f8d;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .social-links a {
+  background-color: #333;
+  color: #e0e0e0;
+}
+
+body.dark .social-links a:hover {
+  background-color: #555;
+}
+
+/* ABOUT */
 .about {
   padding: 4rem 2rem;
   background-color: #282727;
   color: #333;
   text-align: center;
+}
+
+.about h2 {
+  color: white;
 }
 
 .about-container {
@@ -113,7 +232,7 @@ body.dark .theme-toggle:hover {
   height: 160px;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .about-text {
@@ -122,47 +241,12 @@ body.dark .theme-toggle:hover {
   padding: 0 1.5rem;
 }
 
-.about h2 {
-  color: white;
-}
-
 .about-text p {
   margin-bottom: 1rem;
   line-height: 1.6;
 }
 
-.btn-explore {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.6rem 1.2rem;
-  background-color: #007bff;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.btn-explore:hover {
-  background-color: #0056b3;
-}
-
-@media (min-width: 768px) {
-  .about-container {
-    flex-direction: row;
-    text-align: left;
-  }
-
-  .about-text {
-    flex: 1;
-  }
-
-  .about-img {
-    width: 200px;
-    height: 200px;  
-  }
-}
-
+/* SKILLS ICON */
 .skills-icons {
   margin-top: 1rem;
   font-size: 2rem;
@@ -191,142 +275,40 @@ body.dark .skills-icons {
   color: #ccc;
 }
 
-
-/* Profil */
-.profile-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #ddd;
-  margin-bottom: 20px;
-}
-
-.profile-name {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.profile-bio {
-  font-size: 16px;
-  color: #666;
-  margin-bottom: 30px;
-}
-
-/* Link Sosial Media */
-.social-links h2 {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-.social-links ul {
-  list-style: none;
-  padding: 0;
-}
-
-.social-links li {
-  margin: 10px 0;
-}
-
-.social-links a {
-  text-decoration: none;
-  color: #fff;
-  background-color: #0077b5;
-  padding: 12px 20px;
-  border-radius: 8px;
-  display: inline-block;
-  width: 80%;
-  max-width: 300px;
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  font-family: inherit;
-}
-
-.social-links a:hover {
-  background-color: #005f8d;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-/* 🌙 DARK MODE via class */
-body.dark {
-  background-color: #121212;
-  color: #e0e0e0;
-}
-
-body.dark .container {
-  background-color: #1e1e1e;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-}
-
-body.dark .profile-bio {
-  color: #aaa;
-}
-
-body.dark .social-links a {
-  background-color: #333;
-  color: #e0e0e0;
-}
-
-body.dark .social-links a:hover {
-  background-color: #555;
-}
-
-body.dark .profile-img {
-  border: 3px solid #444;
-}
-
-body.dark .theme-toggle {
-  border-color: #666;
-  color: #fff;
-}
-
-body.dark .theme-toggle:hover {
-  background-color: #333;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .container {
-    padding: 30px 20px;
+@media (min-width: 768px) {
+  .about-container {
+    flex-direction: row;
+    text-align: left;
   }
 
-  .profile-name {
-    font-size: 24px;
+  .about-text {
+    flex: 1;
   }
 
-  .profile-img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .theme-toggle {
-    font-size: 12px;
-    padding: 6px 12px;
+  .about-img {
+    width: 200px;
+    height: 200px;
   }
 }
 
+/* PROJECTS */
 .projects {
+  background-color: #fafafa;
+  border-radius: 10px;
+  padding: 40px 30px;
   margin-top: 40px;
   margin-bottom: 80px;
   text-align: center;
 }
 
-.projects {
-  background-color: #fafafa;
-  border-radius: 10px;
-  padding: 40px 30px;
-}
-
 .projects h2 {
-  font-size: 22px;
-  margin-bottom: 20px;
-  text-align: center;
+  font-size: 26px;
+  margin-bottom: 32px;
 }
 
 .project-list {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
 }
 
@@ -364,33 +346,11 @@ body.dark .theme-toggle:hover {
   color: #555;
 }
 
-.project-content a {
-  display: inline-block;
-  text-decoration: none;
-  color: #fff;
-  background-color: #0077b5;
-  padding: 8px 16px;
-  border-radius: 6px;
-  transition: background-color 0.3s;
-}
-
-.project-content a:hover {
-  background-color: #005f8d;
-}
-
-/* Responsive grid (2 kolom di desktop) */
-@media (min-width: 768px) {
-  .project-list {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* Dark mode */
+/* DARK MODE PROJECTS */
 body.dark .projects {
   background-color: #1b1b1b;
 }
 
-/* Dark Mode Support */
 body.dark .project-card {
   background-color: #1e1e1e;
 }
@@ -403,14 +363,7 @@ body.dark .project-content p {
   color: #aaa;
 }
 
-body.dark .project-content a {
-  background-color: #444;
-}
-
-body.dark .project-content a:hover {
-  background-color: #666;
-}
-
+/* CONTACT */
 .contact {
   padding: 60px 20px;
   background-color: #f9f9f9;
@@ -430,51 +383,6 @@ body.dark .project-content a:hover {
   gap: 16px;
 }
 
-.contact-social {
-  margin-top: 40px;
-}
-
-.contact-social p {
-  margin-bottom: 12px;
-  font-size: 16px;
-  color: inherit;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  font-size: 28px;
-}
-
-.social-icons a {
-  color: #0077b5;
-  transition: color 0.3s, transform 0.3s;
-}
-
-/* Warna khusus untuk ikon WhatsApp */
-.social-icons a[aria-label="WhatsApp"] {
-  color: #25D366;
-}
-
-.social-icons a[aria-label="WhatsApp"]:hover {
-  color: #1ebe57;
-}
-
-.social-icons a:hover {
-  color: #005f8d;
-  transform: scale(1.2);
-}
-
-/* Dark mode support */
-body.dark .social-icons a {
-  color: #ccc;
-}
-
-body.dark .social-icons a:hover {
-  color: #0af;
-}
-
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -483,6 +391,8 @@ body.dark .social-icons a:hover {
   border-radius: 6px;
   font-family: inherit;
   font-size: 16px;
+  background-color: #fff;
+  color: #333;
   transition: border-color 0.3s;
 }
 
@@ -507,7 +417,41 @@ body.dark .social-icons a:hover {
   background-color: #005f8d;
 }
 
-/* Dark mode */
+/* SOCIAL ICONS */
+.contact-social {
+  margin-top: 40px;
+}
+
+.contact-social p {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 28px;
+}
+
+.social-icons a {
+  color: #0077b5;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #005f8d;
+  transform: scale(1.2);
+}
+
+.social-icons a[aria-label="WhatsApp"] {
+  color: #25d366;
+}
+
+.social-icons a[aria-label="WhatsApp"]:hover {
+  color: #1ebe57;
+}
+
 body.dark .contact {
   background-color: #1a1a1a;
   color: #ddd;
@@ -534,77 +478,30 @@ body.dark .contact-form button:hover {
   background-color: #555;
 }
 
-.navbar {
-  position: fixed;
-  top: 0;
-  z-index: 10;
-  width: 100%;
-  background-color: #fff;
-  padding: 10px 20px;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+body.dark .social-icons a {
+  color: #ccc;
 }
 
-.navbar ul {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  list-style: none;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.navbar a:hover {
-  color: #0077b5;
-}
-
-
-/* Dark mode */
-body.dark .navbar {
-  background-color: #1a1a1a;
-  border-bottom: 1px solid #333;
-}
-
-body.dark .navbar a {
-  color: #ddd;
-}
-
-body.dark .navbar a:hover {
+body.dark .social-icons a:hover {
   color: #0af;
 }
 
-
-/* Dark Mode Styling */
-body.dark .project-card {
-  background-color: #1e1e1e;
-}
-
-body.dark .project-card:hover {
-  background-color: #2c2c2c;
-}
-
-body.dark .project-card p {
-  color: #aaa;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+/* ANIMASI */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeIn 1s ease forwards;
 }
 
-.delay-0 { animation-delay: 0s; }
-.delay-3 { animation-delay: 0.3s; }
-.delay-4 { animation-delay: 0.4s; }
+.delay-0 {
+  animation-delay: 0s;
+}
+.delay-3 {
+  animation-delay: 0.3s;
+}
+.delay-4 {
+  animation-delay: 0.4s;
+}
 
 @keyframes fadeIn {
   to {
@@ -613,6 +510,31 @@ html {
   }
 }
 
+/* GLOBAL BUTTON STYLE */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #0077b5;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #005f8d;
+}
+
+body.dark .btn {
+  background-color: #444;
+}
+
+body.dark .btn:hover {
+  background-color: #666;
+}
+
+/* FOOTER */
 .footer {
   text-align: center;
   padding: 20px;
@@ -624,3 +546,18 @@ body.dark .footer {
   color: #aaa;
 }
 
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .container {
+    padding: 30px 20px;
+  }
+
+  .profile-name {
+    font-size: 24px;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+}
